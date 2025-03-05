@@ -9,7 +9,6 @@ public class LojaTreinamentoApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(LojaTreinamentoApplication.class, args);
-		System.out.println("hello world");
 	}
 
 }
