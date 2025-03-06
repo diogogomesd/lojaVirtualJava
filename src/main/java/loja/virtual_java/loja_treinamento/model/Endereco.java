@@ -3,11 +3,12 @@ package loja.virtual_java.loja_treinamento.model;
 import java.io.Serializable;
 
 import jakarta.persistence.*;
+import loja.virtual_java.loja_treinamento.enums.TipoEndereco;
 
 
 @Entity
 @Table(name = "endereco")
-@SequenceGenerator(name = "endereco_seq", sequenceName = "endereco_seq", allocationSize = 1)
+@SequenceGenerator(name = "endereco_seq", sequenceName = "endereco_seq", allocationSize = 1, initialValue = 1)
 public class Endereco implements Serializable{
     private static final long serialVersionUID = 1L;
 
@@ -25,6 +26,16 @@ public class Endereco implements Serializable{
     @ManyToOne(targetEntity = Pessoa.class)
     @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "pessoa_fk"))
     private Pessoa pessoa;
+
+    @Enumerated(EnumType.STRING)
+    private TipoEndereco tipoEndereco;
+
+    public TipoEndereco getTipoEndereco() {
+        return tipoEndereco;
+    }
+    public void setTipoEndereco(TipoEndereco tipoEndereco) {
+        this.tipoEndereco = tipoEndereco;
+    }
 
     public Long getId() {
         return id;
