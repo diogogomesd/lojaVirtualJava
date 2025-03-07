@@ -1,6 +1,5 @@
 package loja.virtual_java.loja_treinamento.model;
 
-import java.io.ObjectInputFilter.Status;
 import java.math.BigDecimal;
 import java.util.Date;
 
