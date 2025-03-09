@@ -10,12 +10,14 @@ public class AvaliacaoProduto {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "avaliacao_produto_seq")
     private Long id;
 
+    @Column(name = "nota", nullable = false)
     private Integer nota;
 
+    @Column(name = "descricao", nullable = false)
     private String descricao;
 
     @ManyToOne(targetEntity = Pessoa.class)
-    @JoinColumn(name = "pessoa_id", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "fk_conta_receber_pessoa", value = ConstraintMode.CONSTRAINT))
+    @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(name = "fk_pessoa", value = ConstraintMode.CONSTRAINT))
     private Pessoa pessoa;
 
     @ManyToOne

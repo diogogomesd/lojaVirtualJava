@@ -15,25 +15,31 @@ public class ContaPagar {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_conta_pagar")
     private Long id;
 
+    @Column(name = "descricao", nullable = false)
     private String descricao;
+
     @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
     private StatusContaPagar status;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "data_vencimento", nullable = false)
     private Date dataVencimento;
 
     @Temporal(TemporalType.DATE)
     private Date dataPagamento;
 
+    @Column(name = "valor_total", nullable = false)
     private BigDecimal valorTotal;
+
     private BigDecimal valorDesconto;
 
     @ManyToOne(targetEntity = Pessoa.class)
-    @JoinColumn(name = "pessoa_id", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "fk_conta_receber_pessoa", value = ConstraintMode.CONSTRAINT))
+    @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(name = "fk_conta_receber_pessoa", value = ConstraintMode.CONSTRAINT))
     private Pessoa pessoa;
 
     @ManyToOne(targetEntity = Pessoa.class)
-    @JoinColumn(name = "pessoa_forn_id", referencedColumnName = "id", nullable = false, foreignKey = @ForeignKey(name = "fk_conta_receber_pessoa_forn", value = ConstraintMode.CONSTRAINT))
+    @JoinColumn(name = "pessoa_forn_id", nullable = false, foreignKey = @ForeignKey(name = "fk_conta_receber_pessoa_forn", value = ConstraintMode.CONSTRAINT))
     private Pessoa pessoa_fornecedor;
 
     public Long getId() {

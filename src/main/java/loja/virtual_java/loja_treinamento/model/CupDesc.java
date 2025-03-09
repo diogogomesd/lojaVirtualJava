@@ -14,9 +14,14 @@ public class CupDesc {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_cup_desc")
     private Long id;
 
+    @Column(name = "cod_descricao", nullable = false)
     private String codDescricao;
+
     private BigDecimal valorRealDesconto;
+
     private BigDecimal valorPorcentagemDesconto;
+
+    @Column(name = "data_validade", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataValidade;
     

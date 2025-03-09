@@ -11,14 +11,19 @@ public class NotaFiscalVenda {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "nota_fiscal_venda_seq")
     private Long id;
 
+    @Column(name = "numero_nota_fiscal", nullable = false)
     private String numeroNotaFiscal;
-    private String serie;
-    private String tipo;
-    @Column(columnDefinition = "text")
-    private String xml;
-    @Column(columnDefinition = "text")
-    private String pdf;
 
+    @Column(name = "serie", nullable = false)
+    private String serie;
+
+    @Column(name = "tipo", nullable = false)
+    private String tipo;
+
+    @Column(columnDefinition = "text", nullable = false)
+    private String xml;
+    @Column(columnDefinition = "text", nullable = false)
+    private String pdf;
 
     @OneToOne
     @JoinColumn(name = "venda_compra_loja_virtual_id", nullable = false, foreignKey = @ForeignKey(name = "fk_venda_compra_loja_virtual", value = ConstraintMode.CONSTRAINT))

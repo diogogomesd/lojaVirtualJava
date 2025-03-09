@@ -7,12 +7,24 @@ import jakarta.persistence.*;
 @PrimaryKeyJoinColumn(name = "id")
 public class PessoaJuridica extends Pessoa{
     
+    private static final long serialVersionUID = 1L;
+   
+    @Column(name = "cnpj", nullable = false)
     private String cnpj;
+
+    @Column(name = "inscricao_estadual", nullable = false)
     private String inscricaoEstadual;
+
     private String inscricaoMunicipal;
+
+    @Column(name = "nome_fantazia", nullable = false)
     private String nomeFantazia;
+
+    @Column(name = "razao_social", nullable = false)
     private String razaoSocial;
+    
     private String categoria;
+
     public String getCnpj() {
         return cnpj;
     }

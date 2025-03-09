@@ -11,6 +11,7 @@ public class ItemVendaLoja {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_item_venda_loja")
     private Long id;
 
+    @Column(name = "quantidade", nullable = false)
     private Double quantidade;
 
     @ManyToOne

@@ -12,9 +12,9 @@ public class Acesso implements GrantedAuthority{
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_acesso")
-    private long id;
+    private Long id;
     
-    @Column(name = "descricao", length = 100, nullable = false)
+    @Column(name = "descricao", nullable = false)
     private String descricao;
     
     @Override

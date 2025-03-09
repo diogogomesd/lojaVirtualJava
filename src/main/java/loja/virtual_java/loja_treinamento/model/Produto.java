@@ -13,23 +13,44 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_produto")
     private Long id;
 
+    @Column(name = "tipo_unidade", nullable = false)
     private String tipoUnidade;
+
+    @Column(name = "nome", nullable = false)
     private String nome;
-    @Column(columnDefinition = "text", length = 2000)
+
+    @Column(columnDefinition = "text", length = 2000, nullable = false)
     private String descricao;
 
     /*Nota item nota produto : ASSOCIAR*/
 
+    @Column(name = "peso", nullable = false)
     private Double peso;
+
+    @Column(name = "altura", nullable = false)
     private Double altura;
+
+    @Column(name = "largura", nullable = false)
     private Double largura;
+
+    @Column(name = "profundidade", nullable = false)
     private Double profundidade;
+
+    @Column(name = "valor_venda", nullable = false)
     private BigDecimal valorVenda = BigDecimal.ZERO;
+
+    @Column(name = "quantidade_estoque", nullable = false)
     private Integer quantidadeEstoque = 0;
+
     private Integer quantidadeAlertaEstoque = 0;
+
     private String linkYouTube;
+
     private Boolean AlertaQuantidadeEstoque = Boolean.FALSE;
+    
     private Integer quantidadeClique = 0;
+
+    @Column(name = "ativo", nullable = false)
     private Boolean ativo = Boolean.TRUE;
     
     public Long getId() {

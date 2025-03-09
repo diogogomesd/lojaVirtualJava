@@ -16,8 +16,14 @@ public abstract class Pessoa  implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "seq_pessoa")
     private long id;
+
+    @Column(name = "nome", nullable = false)
     private String nome;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "telefone", nullable = false)
     private String telefone;
 
     @OneToMany(mappedBy = "pessoa", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)

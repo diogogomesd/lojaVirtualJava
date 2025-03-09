@@ -16,17 +16,28 @@ public class Endereco implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco_seq")
     private Long id;
 
+    @Column(name = "rua_logradouro", nullable = false)
     private String ruaLogradouro;
+
+    @Column(name = "cep", nullable = false)
     private String cep;
+
+    @Column(name = "numero", nullable = false)
     private String numero;
+
     private String complemento;
+
+    @Column(name = "bairro", nullable = false)
     private String bairro;
+
+    @Column(name = "cidade", nullable = false)
     private String cidade;
     
     @ManyToOne(targetEntity = Pessoa.class)
     @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "pessoa_fk"))
     private Pessoa pessoa;
 
+    @Column(name = "tipo_endereco", nullable = false)
     @Enumerated(EnumType.STRING)
     private TipoEndereco tipoEndereco;
 
