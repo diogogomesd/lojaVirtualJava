@@ -4,10 +4,14 @@ import org.springframework.security.core.GrantedAuthority;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
+import java.util.Objects;
+
 @Entity
 @Table(name = "acesso")
 @SequenceGenerator(name = "seq_acesso", sequenceName = "seq_acesso", allocationSize = 1, initialValue = 1)
 public class Acesso implements GrantedAuthority{
+    @Serial
     private static final long serialVersionUID = 1L;
     
     @Id
@@ -42,7 +46,7 @@ public class Acesso implements GrantedAuthority{
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + id.hashCode();
         result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
         return result;
     }
@@ -56,14 +60,11 @@ public class Acesso implements GrantedAuthority{
         if (getClass() != obj.getClass())
             return false;
         Acesso other = (Acesso) obj;
-        if (id != other.id)
+        if (!Objects.equals(id, other.id))
             return false;
         if (descricao == null) {
-            if (other.descricao != null)
-                return false;
-        } else if (!descricao.equals(other.descricao))
-            return false;
-        return true;
+            return other.descricao == null;
+        } else return descricao.equals(other.descricao);
     }
     
     

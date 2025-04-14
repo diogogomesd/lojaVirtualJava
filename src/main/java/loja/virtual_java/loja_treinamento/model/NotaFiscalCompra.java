@@ -35,7 +35,7 @@ public class NotaFiscalCompra {
     private Date dataCompra;
 
     @ManyToOne(targetEntity = Pessoa.class)
-    @JoinColumn(name = "id_pessoa", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "fk_nota_fiscal_compra_pessoa"))
+    @JoinColumn(name = "pessoa_id", nullable = false, foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "fk_nota_fiscal_compra_pessoa"))
     private Pessoa pessoa;
 
     @ManyToOne
